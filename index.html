@@ -33,9 +33,7 @@ body{
   overflow-x:hidden;
 }
 
-/* =========================================
-   MAIN SIDEBAR
-========================================= */
+/* OUTER SIDEBAR */
 
 .sidebar{
   width:100%;
@@ -60,29 +58,7 @@ body{
     0 0 24px rgba(255,107,26,.35);
 }
 
-/* =========================================
-   GLOBAL LIFT EFFECT
-========================================= */
-
-.lift{
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    filter .25s ease,
-    border-color .25s ease;
-}
-
-.lift:hover{
-  transform:translateY(-7px);
-
-  box-shadow:
-    0 14px 28px rgba(0,0,0,.55),
-    0 0 20px rgba(255,107,26,.24);
-}
-
-/* =========================================
-   HERO
-========================================= */
+/* HERO */
 
 .hero-wrap{
   overflow:hidden;
@@ -95,6 +71,18 @@ body{
   box-shadow:
     0 0 16px rgba(255,107,26,.55),
     0 0 35px rgba(112,36,154,.35);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.hero-wrap:hover{
+  transform:translateY(-7px);
+
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.55),
+    0 0 20px rgba(255,107,26,.35);
 }
 
 .hero{
@@ -112,9 +100,7 @@ body{
   filter:brightness(1.08);
 }
 
-/* =========================================
-   CLUB HEADER
-========================================= */
+/* CLUB HEADER */
 
 .club-header{
   text-align:center;
@@ -141,9 +127,7 @@ body{
   line-height:1.45;
 }
 
-/* =========================================
-   MAIN CARDS
-========================================= */
+/* MAIN CARDS */
 
 .card{
   position:relative;
@@ -193,9 +177,7 @@ body{
   font-weight:800;
 }
 
-/* =========================================
-   ROTATING TEXT
-========================================= */
+/* ROTATING TEXT */
 
 .rotator{
   width:100%;
@@ -215,9 +197,7 @@ body{
 .rotator-track{
   display:inline-block;
   padding-left:100%;
-
-  animation:
-    rotateText 15s linear infinite;
+  animation:rotateText 15s linear infinite;
 }
 
 @keyframes rotateText{
@@ -230,9 +210,7 @@ body{
   }
 }
 
-/* =========================================
-   NEW MEMBERS
-========================================= */
+/* NEWEST MEMBERS */
 
 .members-list{
   display:flex;
@@ -324,9 +302,7 @@ body{
   color:#ffb35f;
 }
 
-/* =========================================
-   LOADING
-========================================= */
+/* LOADING */
 
 .loading{
   padding:13px;
@@ -340,9 +316,7 @@ body{
   font-size:13px;
 }
 
-/* =========================================
-   QUICK LINKS
-========================================= */
+/* QUICK LINKS */
 
 .quick-links{
   display:flex;
@@ -393,9 +367,7 @@ body{
     0 0 16px rgba(255,107,26,.3);
 }
 
-/* =========================================
-   MUSIC PLAYER
-========================================= */
+/* MUSIC PLAYER */
 
 .music-player{
   padding:12px;
@@ -468,7 +440,6 @@ body{
 
 .progress{
   width:100%;
-
   cursor:pointer;
   accent-color:var(--orange);
 }
@@ -528,7 +499,6 @@ body{
 .play-btn{
   width:50px;
   height:50px;
-
   font-size:19px;
 }
 
@@ -548,9 +518,7 @@ body{
   accent-color:var(--orange);
 }
 
-/* =========================================
-   SPOOKIEST MEMBER
-========================================= */
+/* SPOOKIEST MEMBER */
 
 .spookiest-card{
   display:flex;
@@ -619,9 +587,7 @@ body{
   line-height:1.35;
 }
 
-/* =========================================
-   TRICK OR TREAT
-========================================= */
+/* TRICK OR TREAT */
 
 .treat-button{
   width:100%;
@@ -666,9 +632,7 @@ body{
     0 0 25px rgba(255,103,29,.55);
 }
 
-/* =========================================
-   HALLOWEEN CELEBRATION
-========================================= */
+/* HALLOWEEN CELEBRATION */
 
 .halloween-piece{
   position:fixed;
@@ -678,8 +642,7 @@ body{
 
   z-index:2147483647;
 
-  animation:
-    halloweenFall linear forwards;
+  animation:halloweenFall linear forwards;
 }
 
 @keyframes halloweenFall{
@@ -700,9 +663,7 @@ body{
   }
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* FOOTER */
 
 .footer{
   padding:17px 5px 4px;
@@ -718,28 +679,195 @@ body{
 }
 
 /* =========================================
-   MOBILE
+   COMPACT MOBILE LAYOUT
+   Built specifically to fit the same iframe
 ========================================= */
 
 @media(max-width:480px){
 
   .sidebar{
-    padding:10px;
-    border-radius:20px;
+    padding:7px;
+    border-radius:18px;
+  }
+
+  .hero-wrap{
+    width:70%;
+    margin:0 auto 5px;
+    border-radius:12px;
+  }
+
+  .club-header{
+    padding:7px 3px 3px;
   }
 
   .club-name{
-    font-size:26px;
+    font-size:23px;
+  }
+
+  .tagline{
+    margin-top:4px;
+    font-size:11px;
+    line-height:1.25;
   }
 
   .card{
-    padding:11px;
+    margin:8px 0;
+    padding:8px;
+    border-radius:12px;
+  }
+
+  .card:hover{
+    transform:translateY(-3px);
+  }
+
+  .card-title{
+    margin-bottom:5px;
+    font-size:16px;
+  }
+
+  .rotator{
+    margin-bottom:6px;
+    padding:4px 0;
+    font-size:10px;
+  }
+
+  .members-list{
+    gap:5px;
+  }
+
+  .member-card{
+    gap:8px;
+    padding:6px 8px;
+    border-radius:9px;
+  }
+
+  .member-card:hover{
+    transform:
+      translateY(-3px)
+      scale(1.005);
   }
 
   .member-avatar{
-    width:48px;
-    height:48px;
-    flex-basis:48px;
+    width:38px;
+    height:38px;
+    flex-basis:38px;
+  }
+
+  .member-name{
+    font-size:13px;
+  }
+
+  .member-rating{
+    margin-top:2px;
+    font-size:10px;
+  }
+
+  .quick-links{
+    gap:5px;
+  }
+
+  .quick-link{
+    padding:8px;
+    font-size:12px;
+    border-radius:8px;
+  }
+
+  .music-player{
+    padding:8px;
+    border-radius:12px;
+  }
+
+  .music-player:hover{
+    transform:translateY(-3px);
+  }
+
+  .album-wrap{
+    width:62%;
+    margin:0 auto;
+    border-radius:10px;
+  }
+
+  .album-art{
+    border-radius:10px;
+  }
+
+  .now-playing{
+    padding:6px 2px 3px;
+  }
+
+  .song-title{
+    font-size:13px;
+  }
+
+  .song-artist{
+    margin-top:2px;
+    font-size:10px;
+  }
+
+  .time-row{
+    font-size:9px;
+  }
+
+  .controls{
+    gap:7px;
+    margin-top:5px;
+  }
+
+  .control-btn{
+    width:34px;
+    height:34px;
+    font-size:13px;
+  }
+
+  .play-btn{
+    width:40px;
+    height:40px;
+    font-size:15px;
+  }
+
+  .volume-row{
+    margin-top:6px;
+    font-size:10px;
+  }
+
+  .spookiest-card{
+    gap:8px;
+    padding:7px;
+  }
+
+  .spookiest-card:hover{
+    transform:
+      translateY(-3px)
+      scale(1.005);
+  }
+
+  .spookiest-avatar{
+    width:44px;
+    height:44px;
+  }
+
+  .spookiest-name{
+    font-size:13px;
+  }
+
+  .spookiest-title{
+    margin-top:2px;
+    font-size:10px;
+  }
+
+  .spookiest-reason{
+    margin-top:2px;
+    font-size:9px;
+  }
+
+  .treat-button{
+    padding:9px;
+    font-size:13px;
+  }
+
+  .footer{
+    padding:8px 3px 2px;
+    font-size:10px;
   }
 }
 </style>
@@ -749,7 +877,7 @@ body{
 
 <main class="sidebar">
 
-  <div class="hero-wrap lift">
+  <div class="hero-wrap">
     <img
       class="hero"
       src="./hero.jpg"
@@ -885,15 +1013,8 @@ body{
       >
 
       <div class="time-row">
-
-        <span id="currentTime">
-          0:00
-        </span>
-
-        <span id="duration">
-          0:00
-        </span>
-
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
       </div>
 
       <div class="controls">
@@ -1004,9 +1125,7 @@ const CLUB_SLUG = "the-haunted-rook";
 const DEFAULT_AVATAR =
   "https://www.chess.com/bundles/web/images/noavatar_l.84a92436.gif";
 
-/* =========================================
-   NEWEST MEMBERS
-========================================= */
+/* NEWEST MEMBERS */
 
 async function loadNewestMembers(){
 
@@ -1089,9 +1208,7 @@ async function loadNewestMembers(){
   }
 }
 
-/* =========================================
-   BUILD MEMBER CARD
-========================================= */
+/* MEMBER CARD */
 
 async function buildMemberCard(username){
 
@@ -1178,9 +1295,7 @@ async function buildMemberCard(username){
   `;
 }
 
-/* =========================================
-   HIGHEST RATING
-========================================= */
+/* HIGHEST RATING */
 
 function findHighestRating(stats){
 
@@ -1215,9 +1330,7 @@ function findHighestRating(stats){
     : "Unrated";
 }
 
-/* =========================================
-   SPOOKIEST MEMBER
-========================================= */
+/* SPOOKIEST MEMBER */
 
 async function loadSpookiestMember(){
 
@@ -1333,9 +1446,7 @@ async function loadSpookiestMember(){
   }
 }
 
-/* =========================================
-   MUSIC PLAYER
-========================================= */
+/* MUSIC PLAYER */
 
 const songs = [
 
@@ -1588,9 +1699,7 @@ function formatTime(seconds){
   );
 }
 
-/* =========================================
-   TRICK OR TREAT
-========================================= */
+/* TRICK OR TREAT */
 
 function trickOrTreat(){
 
@@ -1675,9 +1784,7 @@ document
     trickOrTreat
   );
 
-/* =========================================
-   SECURITY HELPER
-========================================= */
+/* SECURITY */
 
 function escapeHTML(value){
 
@@ -1689,9 +1796,7 @@ function escapeHTML(value){
     .replaceAll("'","&#039;");
 }
 
-/* =========================================
-   START
-========================================= */
+/* START */
 
 audio.volume = .8;
 
