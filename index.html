@@ -11,67 +11,110 @@
   --orange2:#ff9440;
   --purple:#8c39c6;
   --dark:#050207;
-  --panel:#100817;
   --text:#f8ead3;
   --muted:#c9afd8;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
+html,
 body{
   margin:0;
+  padding:0;
+  width:100%;
+}
+
+body{
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
-  background:#050207;
+  background:transparent;
   overflow-x:hidden;
 }
+
+/* =========================================
+   MAIN SIDEBAR
+========================================= */
 
 .sidebar{
   width:100%;
   max-width:430px;
-  min-height:100vh;
-  margin:18px auto;
+  margin:0 auto;
   padding:16px;
   overflow:hidden;
 
-  background:radial-gradient(circle at top,#3f1452 0%,#17091f 45%,#06030a 100%);
+  background:
+    radial-gradient(
+      circle at top,
+      #3f1452 0%,
+      #17091f 45%,
+      #06030a 100%
+    );
+
   border:2px solid var(--orange);
   border-radius:24px;
 
   box-shadow:
-    0 0 28px rgba(255,107,26,.45),
-    0 18px 40px rgba(0,0,0,.65);
+    inset 0 0 25px rgba(140,57,198,.12),
+    0 0 24px rgba(255,107,26,.35);
 }
 
+/* =========================================
+   GLOBAL LIFT EFFECT
+========================================= */
+
 .lift{
-  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease,border-color .25s ease;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease,
+    border-color .25s ease;
 }
 
 .lift:hover{
   transform:translateY(-7px);
-  box-shadow:0 14px 28px rgba(0,0,0,.55),0 0 20px rgba(255,107,26,.24);
+
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.55),
+    0 0 20px rgba(255,107,26,.24);
 }
+
+/* =========================================
+   HERO
+========================================= */
 
 .hero-wrap{
   overflow:hidden;
   border-radius:16px;
   margin-bottom:8px;
+
   border:2px solid var(--orange);
   background:#000;
-  box-shadow:0 0 16px rgba(255,107,26,.55),0 0 35px rgba(112,36,154,.35);
+
+  box-shadow:
+    0 0 16px rgba(255,107,26,.55),
+    0 0 35px rgba(112,36,154,.35);
 }
 
 .hero{
   display:block;
   width:100%;
   height:auto;
-  transition:transform .4s ease,filter .4s ease;
+
+  transition:
+    transform .4s ease,
+    filter .4s ease;
 }
 
 .hero-wrap:hover .hero{
   transform:scale(1.035);
   filter:brightness(1.08);
 }
+
+/* =========================================
+   CLUB HEADER
+========================================= */
 
 .club-header{
   text-align:center;
@@ -80,54 +123,91 @@ body{
 
 .club-name{
   margin:0;
+
   color:var(--orange);
   font-size:30px;
   line-height:1.1;
-  text-shadow:0 0 8px rgba(255,107,26,.45),2px 2px 0 #210b2d;
+
+  text-shadow:
+    0 0 8px rgba(255,107,26,.45),
+    2px 2px 0 #210b2d;
 }
 
 .tagline{
   margin:7px 0 0;
+
   color:#e3c99d;
   font-size:13px;
   line-height:1.45;
 }
 
+/* =========================================
+   MAIN CARDS
+========================================= */
+
 .card{
   position:relative;
+
   margin:14px 0;
   padding:13px;
-  background:linear-gradient(145deg,rgba(20,8,29,.97),rgba(7,3,11,.97));
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,8,29,.97),
+      rgba(7,3,11,.97)
+    );
+
   border:1px solid #713c91;
   border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.38),inset 0 0 18px rgba(113,60,145,.08);
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.38),
+    inset 0 0 18px rgba(113,60,145,.08);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
 }
 
 .card:hover{
   transform:translateY(-7px);
+
   border-color:var(--orange);
-  box-shadow:0 16px 30px rgba(0,0,0,.55),0 0 20px rgba(255,107,26,.2);
+
+  box-shadow:
+    0 16px 30px rgba(0,0,0,.55),
+    0 0 20px rgba(255,107,26,.2);
 }
 
 .card-title{
   display:flex;
   align-items:center;
   gap:8px;
+
   margin:0 0 9px;
+
   color:var(--orange2);
   font-size:19px;
   font-weight:800;
 }
 
+/* =========================================
+   ROTATING TEXT
+========================================= */
+
 .rotator{
   width:100%;
   overflow:hidden;
   white-space:nowrap;
+
   margin-bottom:11px;
   padding:7px 0;
+
   background:#16091f;
   border-radius:8px;
+
   color:#ffe0a4;
   font-size:12px;
 }
@@ -135,13 +215,24 @@ body{
 .rotator-track{
   display:inline-block;
   padding-left:100%;
-  animation:rotateText 15s linear infinite;
+
+  animation:
+    rotateText 15s linear infinite;
 }
 
 @keyframes rotateText{
-  from{transform:translateX(0)}
-  to{transform:translateX(-100%)}
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-100%);
+  }
 }
+
+/* =========================================
+   NEW MEMBERS
+========================================= */
 
 .members-list{
   display:flex;
@@ -153,28 +244,56 @@ body{
   display:flex;
   align-items:center;
   gap:11px;
+
   padding:10px;
-  background:linear-gradient(135deg,#1d0c28,#100718);
+
+  background:
+    linear-gradient(
+      135deg,
+      #1d0c28,
+      #100718
+    );
+
   border-left:4px solid var(--orange);
   border-radius:12px;
-  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    box-shadow .22s ease;
 }
 
 .member-card:hover{
-  transform:translateY(-6px) scale(1.015);
-  background:linear-gradient(135deg,#2d103d,#17091f);
-  box-shadow:0 10px 18px rgba(0,0,0,.45),0 0 15px rgba(255,107,26,.18);
+  transform:
+    translateY(-6px)
+    scale(1.015);
+
+  background:
+    linear-gradient(
+      135deg,
+      #2d103d,
+      #17091f
+    );
+
+  box-shadow:
+    0 10px 18px rgba(0,0,0,.45),
+    0 0 15px rgba(255,107,26,.18);
 }
 
 .member-avatar{
   width:54px;
   height:54px;
   flex:0 0 54px;
+
   object-fit:cover;
+
   border-radius:50%;
   border:2px solid var(--orange);
+
   background:#2a1734;
-  box-shadow:0 0 10px rgba(255,107,26,.35);
+
+  box-shadow:
+    0 0 10px rgba(255,107,26,.35);
 }
 
 .member-info{
@@ -184,9 +303,11 @@ body{
 
 .member-name{
   display:block;
+
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+
   color:#fff;
   font-size:15px;
   font-weight:800;
@@ -194,6 +315,7 @@ body{
 
 .member-rating{
   margin-top:4px;
+
   color:#e0c3ef;
   font-size:12px;
 }
@@ -202,14 +324,25 @@ body{
   color:#ffb35f;
 }
 
+/* =========================================
+   LOADING
+========================================= */
+
 .loading{
   padding:13px;
+
   text-align:center;
+
   background:#1a0b24;
   border-radius:10px;
+
   color:#d5bbdf;
   font-size:13px;
 }
+
+/* =========================================
+   QUICK LINKS
+========================================= */
 
 .quick-links{
   display:flex;
@@ -219,36 +352,78 @@ body{
 
 .quick-link{
   display:block;
+
   padding:12px;
+
   text-align:center;
   text-decoration:none;
+
   color:#fff4dc;
   font-size:14px;
   font-weight:800;
+
   border-radius:11px;
-  background:linear-gradient(100deg,#7b1dc2,#d23d45,#ff671d);
-  box-shadow:0 5px 12px rgba(0,0,0,.35);
-  transition:transform .22s ease,filter .22s ease,box-shadow .22s ease;
+
+  background:
+    linear-gradient(
+      100deg,
+      #7b1dc2,
+      #d23d45,
+      #ff671d
+    );
+
+  box-shadow:
+    0 5px 12px rgba(0,0,0,.35);
+
+  transition:
+    transform .22s ease,
+    filter .22s ease,
+    box-shadow .22s ease;
 }
 
 .quick-link:hover{
-  transform:translateY(-6px) scale(1.02);
+  transform:
+    translateY(-6px)
+    scale(1.02);
+
   filter:brightness(1.12);
-  box-shadow:0 12px 20px rgba(0,0,0,.45),0 0 16px rgba(255,107,26,.3);
+
+  box-shadow:
+    0 12px 20px rgba(0,0,0,.45),
+    0 0 16px rgba(255,107,26,.3);
 }
+
+/* =========================================
+   MUSIC PLAYER
+========================================= */
 
 .music-player{
   padding:12px;
-  background:linear-gradient(160deg,#13091b,#08040c);
+
+  background:
+    linear-gradient(
+      160deg,
+      #13091b,
+      #08040c
+    );
+
   border:1px solid var(--orange);
   border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.45);
-  transition:transform .28s ease,box-shadow .28s ease;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.45);
+
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease;
 }
 
 .music-player:hover{
   transform:translateY(-8px);
-  box-shadow:0 18px 30px rgba(0,0,0,.58),0 0 22px rgba(255,107,26,.26);
+
+  box-shadow:
+    0 18px 30px rgba(0,0,0,.58),
+    0 0 22px rgba(255,107,26,.26);
 }
 
 .album-wrap{
@@ -260,8 +435,12 @@ body{
   display:block;
   width:100%;
   height:auto;
+
   border-radius:14px;
-  transition:transform .4s ease,filter .4s ease;
+
+  transition:
+    transform .4s ease,
+    filter .4s ease;
 }
 
 .album-wrap:hover .album-art{
@@ -282,12 +461,14 @@ body{
 
 .song-artist{
   margin-top:4px;
+
   color:var(--muted);
   font-size:12px;
 }
 
 .progress{
   width:100%;
+
   cursor:pointer;
   accent-color:var(--orange);
 }
@@ -295,7 +476,9 @@ body{
 .time-row{
   display:flex;
   justify-content:space-between;
+
   margin-top:3px;
+
   color:#c5a9d5;
   font-size:11px;
 }
@@ -305,31 +488,47 @@ body{
   justify-content:center;
   align-items:center;
   gap:10px;
+
   margin-top:11px;
 }
 
 .control-btn{
   width:42px;
   height:42px;
+
   border:0;
   border-radius:50%;
+
   background:var(--orange);
   color:#1b061f;
+
   font-size:16px;
   font-weight:bold;
+
   cursor:pointer;
-  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    filter .2s ease;
 }
 
 .control-btn:hover{
-  transform:translateY(-6px) scale(1.08);
+  transform:
+    translateY(-6px)
+    scale(1.08);
+
   filter:brightness(1.1);
-  box-shadow:0 9px 18px rgba(0,0,0,.45),0 0 14px rgba(255,107,26,.45);
+
+  box-shadow:
+    0 9px 18px rgba(0,0,0,.45),
+    0 0 14px rgba(255,107,26,.45);
 }
 
 .play-btn{
   width:50px;
   height:50px;
+
   font-size:19px;
 }
 
@@ -337,7 +536,9 @@ body{
   display:flex;
   align-items:center;
   gap:8px;
+
   margin-top:12px;
+
   color:#e7ccee;
   font-size:12px;
 }
@@ -347,26 +548,48 @@ body{
   accent-color:var(--orange);
 }
 
+/* =========================================
+   SPOOKIEST MEMBER
+========================================= */
+
 .spookiest-card{
   display:flex;
   align-items:center;
   gap:12px;
+
   padding:12px;
-  background:linear-gradient(135deg,#291036,#120719);
+
+  background:
+    linear-gradient(
+      135deg,
+      #291036,
+      #120719
+    );
+
   border-left:4px solid #f5b942;
   border-radius:12px;
-  transition:transform .22s ease,box-shadow .22s ease;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease;
 }
 
 .spookiest-card:hover{
-  transform:translateY(-7px) scale(1.015);
-  box-shadow:0 12px 22px rgba(0,0,0,.48),0 0 16px rgba(245,185,66,.22);
+  transform:
+    translateY(-7px)
+    scale(1.015);
+
+  box-shadow:
+    0 12px 22px rgba(0,0,0,.48),
+    0 0 16px rgba(245,185,66,.22);
 }
 
 .spookiest-avatar{
   width:62px;
   height:62px;
+
   object-fit:cover;
+
   border-radius:50%;
   border:2px solid #f5b942;
 }
@@ -383,53 +606,109 @@ body{
 
 .spookiest-title{
   margin-top:4px;
+
   color:#f5c867;
   font-size:12px;
 }
 
 .spookiest-reason{
   margin-top:4px;
+
   color:#d7bddf;
   font-size:11px;
   line-height:1.35;
 }
 
+/* =========================================
+   TRICK OR TREAT
+========================================= */
+
 .treat-button{
   width:100%;
+
   padding:13px;
+
   border:0;
   border-radius:999px;
-  background:linear-gradient(90deg,#7c21c5,#ff671d);
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c21c5,
+      #ff671d
+    );
+
   color:#fff;
+
   font-size:16px;
   font-weight:900;
+
   cursor:pointer;
-  box-shadow:0 0 18px rgba(255,103,29,.4);
-  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+
+  box-shadow:
+    0 0 18px rgba(255,103,29,.4);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease;
 }
 
 .treat-button:hover{
-  transform:translateY(-8px) scale(1.03);
+  transform:
+    translateY(-8px)
+    scale(1.03);
+
   filter:brightness(1.12);
-  box-shadow:0 15px 25px rgba(0,0,0,.5),0 0 25px rgba(255,103,29,.55);
+
+  box-shadow:
+    0 15px 25px rgba(0,0,0,.5),
+    0 0 25px rgba(255,103,29,.55);
 }
+
+/* =========================================
+   HALLOWEEN CELEBRATION
+========================================= */
 
 .halloween-piece{
   position:fixed;
   top:-60px;
+
   pointer-events:none;
+
   z-index:2147483647;
-  animation:halloweenFall linear forwards;
+
+  animation:
+    halloweenFall linear forwards;
 }
 
 @keyframes halloweenFall{
-  0%{transform:translateY(-10vh) rotate(0deg);opacity:1}
-  100%{transform:translateY(120vh) rotate(900deg);opacity:0}
+  0%{
+    transform:
+      translateY(-10vh)
+      rotate(0deg);
+
+    opacity:1;
+  }
+
+  100%{
+    transform:
+      translateY(120vh)
+      rotate(900deg);
+
+    opacity:0;
+  }
 }
 
+/* =========================================
+   FOOTER
+========================================= */
+
 .footer{
-  padding:17px 5px 8px;
+  padding:17px 5px 4px;
+
   text-align:center;
+
   color:#bca6ca;
   font-size:12px;
 }
@@ -438,9 +717,13 @@ body{
   color:var(--orange);
 }
 
+/* =========================================
+   MOBILE
+========================================= */
+
 @media(max-width:480px){
+
   .sidebar{
-    margin:10px auto;
     padding:10px;
     border-radius:20px;
   }
@@ -467,175 +750,442 @@ body{
 <main class="sidebar">
 
   <div class="hero-wrap lift">
-    <img class="hero" src="./hero.jpg" alt="The Haunted Rook">
+    <img
+      class="hero"
+      src="./hero.jpg"
+      alt="The Haunted Rook"
+    >
   </div>
 
   <header class="club-header">
-    <h1 class="club-name">🎃 The Haunted Rook</h1>
-    <p class="tagline">Spooky chess, haunted matches, and tactical nightmares.</p>
+    <h1 class="club-name">
+      🎃 The Haunted Rook
+    </h1>
+
+    <p class="tagline">
+      Spooky chess, haunted matches, and tactical nightmares.
+    </p>
   </header>
 
   <section class="card">
-    <h2 class="card-title">🧟 Newest Members</h2>
+
+    <h2 class="card-title">
+      🧟 Newest Members
+    </h2>
+
     <div class="rotator">
-      <span class="rotator-track">Fresh souls have entered the castle • Welcome to The Haunted Rook •</span>
+      <span class="rotator-track">
+        Fresh souls have entered the castle • Welcome to The Haunted Rook •
+      </span>
     </div>
-    <div id="newMembers" class="members-list">
-      <div class="loading">Summoning club members...</div>
+
+    <div
+      id="newMembers"
+      class="members-list"
+    >
+      <div class="loading">
+        Summoning club members...
+      </div>
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🕸️ Quick Links</h2>
+
+    <h2 class="card-title">
+      🕸️ Quick Links
+    </h2>
+
     <div class="rotator">
-      <span class="rotator-track">Enter the forum • Find a match • Explore strange variants •</span>
+      <span class="rotator-track">
+        Enter the forum • Find a match • Explore strange variants •
+      </span>
     </div>
+
     <div class="quick-links">
-      <a class="quick-link" href="https://www.chess.com/clubs/forum/the-haunted-rook" target="_blank" rel="noopener">💬 Club Forum</a>
-      <a class="quick-link" href="https://www.chess.com/clubs/events/the-haunted-rook" target="_blank" rel="noopener">📅 Club Events</a>
-      <a class="quick-link" href="https://www.chess.com/variants" target="_blank" rel="noopener">♟️ Chess.com Variants</a>
+
+      <a
+        class="quick-link"
+        href="https://www.chess.com/clubs/forum/the-haunted-rook"
+        target="_blank"
+        rel="noopener"
+      >
+        💬 Club Forum
+      </a>
+
+      <a
+        class="quick-link"
+        href="https://www.chess.com/clubs/events/the-haunted-rook"
+        target="_blank"
+        rel="noopener"
+      >
+        📅 Club Events
+      </a>
+
+      <a
+        class="quick-link"
+        href="https://www.chess.com/variants"
+        target="_blank"
+        rel="noopener"
+      >
+        ♟️ Chess.com Variants
+      </a>
+
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🎧 Haunted Rook Radio</h2>
+
+    <h2 class="card-title">
+      🎧 Haunted Rook Radio
+    </h2>
+
     <div class="rotator">
-      <span class="rotator-track">Spooky tunes for legendary players • Turn it up and haunt the board •</span>
+      <span class="rotator-track">
+        Spooky tunes for legendary players • Turn it up and haunt the board •
+      </span>
     </div>
 
     <div class="music-player">
+
       <div class="album-wrap">
-        <img class="album-art" src="./haunted-rook-radio-cover.jpg" alt="Haunted Rook Radio">
+        <img
+          class="album-art"
+          src="./haunted-rook-radio-cover.jpg"
+          alt="Haunted Rook Radio"
+        >
       </div>
 
       <div class="now-playing">
-        <div id="songTitle" class="song-title">Track 01</div>
-        <div id="songArtist" class="song-artist">Haunted Rook Radio</div>
+
+        <div
+          id="songTitle"
+          class="song-title"
+        >
+          Track 01
+        </div>
+
+        <div
+          id="songArtist"
+          class="song-artist"
+        >
+          Haunted Rook Radio
+        </div>
+
       </div>
 
-      <input id="progress" class="progress" type="range" min="0" max="100" value="0">
+      <input
+        id="progress"
+        class="progress"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+      >
 
       <div class="time-row">
-        <span id="currentTime">0:00</span>
-        <span id="duration">0:00</span>
+
+        <span id="currentTime">
+          0:00
+        </span>
+
+        <span id="duration">
+          0:00
+        </span>
+
       </div>
 
       <div class="controls">
-        <button class="control-btn" id="prevBtn" aria-label="Previous track">⏮</button>
-        <button class="control-btn play-btn" id="playBtn" aria-label="Play or pause">▶</button>
-        <button class="control-btn" id="nextBtn" aria-label="Next track">⏭</button>
+
+        <button
+          class="control-btn"
+          id="prevBtn"
+          aria-label="Previous track"
+        >
+          ⏮
+        </button>
+
+        <button
+          class="control-btn play-btn"
+          id="playBtn"
+          aria-label="Play or pause"
+        >
+          ▶
+        </button>
+
+        <button
+          class="control-btn"
+          id="nextBtn"
+          aria-label="Next track"
+        >
+          ⏭
+        </button>
+
       </div>
 
       <div class="volume-row">
+
         <span>🔊</span>
-        <input id="volume" class="volume" type="range" min="0" max="1" step="0.01" value="0.8">
+
+        <input
+          id="volume"
+          class="volume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.8"
+        >
+
       </div>
 
-      <audio id="audio" preload="metadata"></audio>
+      <audio
+        id="audio"
+        preload="metadata"
+      ></audio>
+
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">👑 Spookiest Member</h2>
+
+    <h2 class="card-title">
+      👑 Spookiest Member
+    </h2>
+
     <div class="rotator">
-      <span class="rotator-track">One player rises above the graveyard • The castle honors its champion •</span>
+      <span class="rotator-track">
+        One player rises above the graveyard • The castle honors its champion •
+      </span>
     </div>
+
     <div id="spookiestMember">
-      <div class="loading">Searching the crypt...</div>
+      <div class="loading">
+        Searching the crypt...
+      </div>
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🍬 Trick or Treat</h2>
+
+    <h2 class="card-title">
+      🍬 Trick or Treat
+    </h2>
+
     <div class="rotator">
-      <span class="rotator-track">One button • Questionable consequences • Absolutely press it •</span>
+      <span class="rotator-track">
+        One button • Questionable consequences • Absolutely press it •
+      </span>
     </div>
-    <button id="treatButton" class="treat-button">🎃 Trick or Treat</button>
+
+    <button
+      id="treatButton"
+      class="treat-button"
+    >
+      🎃 Trick or Treat
+    </button>
+
   </section>
 
   <footer class="footer">
-    Made by <strong>DevilsGambit22</strong> © 2026
+    Made by
+    <strong>DevilsGambit22</strong>
+    © 2026
   </footer>
 
 </main>
 
 <script>
 const CLUB_SLUG = "the-haunted-rook";
-const DEFAULT_AVATAR = "https://www.chess.com/bundles/web/images/noavatar_l.84a92436.gif";
+
+const DEFAULT_AVATAR =
+  "https://www.chess.com/bundles/web/images/noavatar_l.84a92436.gif";
+
+/* =========================================
+   NEWEST MEMBERS
+========================================= */
 
 async function loadNewestMembers(){
-  const container = document.getElementById("newMembers");
+
+  const container =
+    document.getElementById("newMembers");
 
   try{
-    const response = await fetch(`https://api.chess.com/pub/club/${CLUB_SLUG}/members`);
-    if(!response.ok) throw new Error("Club member request failed");
 
-    const data = await response.json();
-    const combined = [...(data.weekly || []), ...(data.monthly || []), ...(data.all_time || [])];
+    const response = await fetch(
+      `https://api.chess.com/pub/club/${CLUB_SLUG}/members`
+    );
+
+    if(!response.ok){
+      throw new Error("Club member request failed");
+    }
+
+    const data =
+      await response.json();
+
+    const combined = [
+      ...(data.weekly || []),
+      ...(data.monthly || []),
+      ...(data.all_time || [])
+    ];
 
     const uniqueMembers = [];
     const seen = new Set();
 
     for(const member of combined){
-      if(member.username && !seen.has(member.username.toLowerCase())){
-        seen.add(member.username.toLowerCase());
+
+      if(
+        member.username &&
+        !seen.has(member.username.toLowerCase())
+      ){
+
+        seen.add(
+          member.username.toLowerCase()
+        );
+
         uniqueMembers.push(member);
       }
     }
 
-    const selectedMembers = uniqueMembers.slice(0,5);
+    const selectedMembers =
+      uniqueMembers.slice(0,5);
 
     if(!selectedMembers.length){
-      container.innerHTML = `<div class="loading">No members found yet.</div>`;
+
+      container.innerHTML = `
+        <div class="loading">
+          No members found yet.
+        </div>
+      `;
+
       return;
     }
 
-    const memberCards = await Promise.all(selectedMembers.map(member => buildMemberCard(member.username)));
-    container.innerHTML = memberCards.join("");
-  }catch(error){
+    const memberCards =
+      await Promise.all(
+        selectedMembers.map(
+          member =>
+            buildMemberCard(member.username)
+        )
+      );
+
+    container.innerHTML =
+      memberCards.join("");
+
+  }
+
+  catch(error){
+
     console.error(error);
-    container.innerHTML = `<div class="loading">The member board is temporarily haunting another dimension.</div>`;
+
+    container.innerHTML = `
+      <div class="loading">
+        The member board is temporarily haunting another dimension.
+      </div>
+    `;
   }
 }
 
+/* =========================================
+   BUILD MEMBER CARD
+========================================= */
+
 async function buildMemberCard(username){
-  let avatar = DEFAULT_AVATAR;
-  let highestRating = "Unrated";
+
+  let avatar =
+    DEFAULT_AVATAR;
+
+  let highestRating =
+    "Unrated";
 
   try{
-    const [profileResponse, statsResponse] = await Promise.all([
-      fetch(`https://api.chess.com/pub/player/${username}`),
-      fetch(`https://api.chess.com/pub/player/${username}/stats`)
+
+    const [
+      profileResponse,
+      statsResponse
+    ] = await Promise.all([
+
+      fetch(
+        `https://api.chess.com/pub/player/${username}`
+      ),
+
+      fetch(
+        `https://api.chess.com/pub/player/${username}/stats`
+      )
+
     ]);
 
     if(profileResponse.ok){
-      const profile = await profileResponse.json();
-      if(profile.avatar) avatar = profile.avatar;
+
+      const profile =
+        await profileResponse.json();
+
+      if(profile.avatar){
+        avatar = profile.avatar;
+      }
     }
 
     if(statsResponse.ok){
-      const stats = await statsResponse.json();
-      highestRating = findHighestRating(stats);
+
+      const stats =
+        await statsResponse.json();
+
+      highestRating =
+        findHighestRating(stats);
     }
-  }catch(error){
-    console.warn(`Could not fully load ${username}`, error);
+
   }
 
-  const safeUsername = escapeHTML(username);
+  catch(error){
+
+    console.warn(
+      `Could not fully load ${username}`,
+      error
+    );
+  }
+
+  const safeUsername =
+    escapeHTML(username);
 
   return `
     <div class="member-card">
-      <img class="member-avatar" src="${avatar}" alt="${safeUsername}" loading="lazy" onerror="this.src='${DEFAULT_AVATAR}'">
+
+      <img
+        class="member-avatar"
+        src="${avatar}"
+        alt="${safeUsername}"
+        loading="lazy"
+        onerror="this.src='${DEFAULT_AVATAR}'"
+      >
+
       <div class="member-info">
-        <span class="member-name">${safeUsername}</span>
-        <div class="member-rating">Highest Rating: <strong>${highestRating}</strong></div>
+
+        <span class="member-name">
+          ${safeUsername}
+        </span>
+
+        <div class="member-rating">
+          Highest Rating:
+          <strong>${highestRating}</strong>
+        </div>
+
       </div>
+
     </div>
   `;
 }
 
+/* =========================================
+   HIGHEST RATING
+========================================= */
+
 function findHighestRating(stats){
+
   const ratings = [];
+
   const categories = [
     "chess_daily",
     "chess_rapid",
@@ -648,163 +1198,489 @@ function findHighestRating(stats){
   ];
 
   for(const category of categories){
-    const value = stats?.[category]?.last?.rating;
-    if(typeof value === "number" && Number.isFinite(value)) ratings.push(value);
+
+    const value =
+      stats?.[category]?.last?.rating;
+
+    if(
+      typeof value === "number" &&
+      Number.isFinite(value)
+    ){
+      ratings.push(value);
+    }
   }
 
-  return ratings.length ? Math.max(...ratings) : "Unrated";
+  return ratings.length
+    ? Math.max(...ratings)
+    : "Unrated";
 }
 
+/* =========================================
+   SPOOKIEST MEMBER
+========================================= */
+
 async function loadSpookiestMember(){
-  const container = document.getElementById("spookiestMember");
+
+  const container =
+    document.getElementById(
+      "spookiestMember"
+    );
 
   try{
-    const response = await fetch("./data/top-performer.json");
-    if(!response.ok) throw new Error("Top performer file missing");
 
-    const performer = await response.json();
-    const username = performer.username;
-    let avatar = DEFAULT_AVATAR;
+    const response =
+      await fetch(
+        "./data/top-performer.json"
+      );
+
+    if(!response.ok){
+      throw new Error(
+        "Top performer file missing"
+      );
+    }
+
+    const performer =
+      await response.json();
+
+    const username =
+      performer.username;
+
+    let avatar =
+      DEFAULT_AVATAR;
 
     try{
-      const profileResponse = await fetch(`https://api.chess.com/pub/player/${username}`);
+
+      const profileResponse =
+        await fetch(
+          `https://api.chess.com/pub/player/${username}`
+        );
+
       if(profileResponse.ok){
-        const profile = await profileResponse.json();
-        if(profile.avatar) avatar = profile.avatar;
+
+        const profile =
+          await profileResponse.json();
+
+        if(profile.avatar){
+          avatar = profile.avatar;
+        }
       }
-    }catch(error){
-      console.warn("Could not load performer avatar");
+
+    }
+
+    catch(error){
+
+      console.warn(
+        "Could not load performer avatar"
+      );
     }
 
     container.innerHTML = `
       <div class="spookiest-card">
-        <img class="spookiest-avatar" src="${avatar}" alt="${escapeHTML(username)}" onerror="this.src='${DEFAULT_AVATAR}'">
+
+        <img
+          class="spookiest-avatar"
+          src="${avatar}"
+          alt="${escapeHTML(username)}"
+          onerror="this.src='${DEFAULT_AVATAR}'"
+        >
+
         <div class="spookiest-info">
-          <div class="spookiest-name">🏆 ${escapeHTML(username)}</div>
-          <div class="spookiest-title">${escapeHTML(performer.title || "Spookiest Member")}</div>
-          <div class="spookiest-reason">${escapeHTML(performer.reason || "Top performer of the week")}</div>
+
+          <div class="spookiest-name">
+            🏆 ${escapeHTML(username)}
+          </div>
+
+          <div class="spookiest-title">
+            ${escapeHTML(
+              performer.title ||
+              "Spookiest Member"
+            )}
+          </div>
+
+          <div class="spookiest-reason">
+            ${escapeHTML(
+              performer.reason ||
+              "Top performer of the week"
+            )}
+          </div>
+
         </div>
+
       </div>
     `;
-  }catch(error){
+
+  }
+
+  catch(error){
+
     container.innerHTML = `
       <div class="spookiest-card">
+
         <div class="spookiest-info">
-          <div class="spookiest-name">👻 The Throne Is Empty</div>
-          <div class="spookiest-reason">The next champion has not yet risen.</div>
+
+          <div class="spookiest-name">
+            👻 The Throne Is Empty
+          </div>
+
+          <div class="spookiest-reason">
+            The next champion has not yet risen.
+          </div>
+
         </div>
+
       </div>
     `;
   }
 }
 
+/* =========================================
+   MUSIC PLAYER
+========================================= */
+
 const songs = [
-  {title:"Track 01", artist:"Haunted Rook Radio", src:"./Track-01.mp3"},
-  {title:"Track 02", artist:"Haunted Rook Radio", src:"./Track-02.mp3"},
-  {title:"Track 03", artist:"Haunted Rook Radio", src:"./Track-03.mp3"},
-  {title:"Track 04", artist:"Haunted Rook Radio", src:"./Track-04.mp3"}
+
+  {
+    title:"Track 01",
+    artist:"Haunted Rook Radio",
+    src:"./Track-01.mp3"
+  },
+
+  {
+    title:"Track 02",
+    artist:"Haunted Rook Radio",
+    src:"./Track-02.mp3"
+  },
+
+  {
+    title:"Track 03",
+    artist:"Haunted Rook Radio",
+    src:"./Track-03.mp3"
+  },
+
+  {
+    title:"Track 04",
+    artist:"Haunted Rook Radio",
+    src:"./Track-04.mp3"
+  }
+
 ];
 
 let currentSong = 0;
 
-const audio = document.getElementById("audio");
-const playButton = document.getElementById("playBtn");
-const previousButton = document.getElementById("prevBtn");
-const nextButton = document.getElementById("nextBtn");
-const progress = document.getElementById("progress");
-const volume = document.getElementById("volume");
-const songTitle = document.getElementById("songTitle");
-const songArtist = document.getElementById("songArtist");
-const currentTimeDisplay = document.getElementById("currentTime");
-const durationDisplay = document.getElementById("duration");
+const audio =
+  document.getElementById("audio");
+
+const playButton =
+  document.getElementById("playBtn");
+
+const previousButton =
+  document.getElementById("prevBtn");
+
+const nextButton =
+  document.getElementById("nextBtn");
+
+const progress =
+  document.getElementById("progress");
+
+const volume =
+  document.getElementById("volume");
+
+const songTitle =
+  document.getElementById("songTitle");
+
+const songArtist =
+  document.getElementById("songArtist");
+
+const currentTimeDisplay =
+  document.getElementById("currentTime");
+
+const durationDisplay =
+  document.getElementById("duration");
 
 function loadSong(index){
+
   currentSong = index;
-  const song = songs[currentSong];
-  audio.src = song.src;
-  songTitle.textContent = song.title;
-  songArtist.textContent = song.artist;
+
+  const song =
+    songs[currentSong];
+
+  audio.src =
+    song.src;
+
+  songTitle.textContent =
+    song.title;
+
+  songArtist.textContent =
+    song.artist;
+
   progress.value = 0;
-  currentTimeDisplay.textContent = "0:00";
+
+  currentTimeDisplay.textContent =
+    "0:00";
 }
 
 function togglePlay(){
+
   if(audio.paused){
+
     audio.play()
-      .then(() => playButton.textContent = "⏸")
-      .catch(error => console.error("Audio could not play", error));
-  }else{
+      .then(()=>{
+
+        playButton.textContent =
+          "⏸";
+
+      })
+      .catch(error=>{
+
+        console.error(
+          "Audio could not play",
+          error
+        );
+      });
+
+  }
+
+  else{
+
     audio.pause();
-    playButton.textContent = "▶";
+
+    playButton.textContent =
+      "▶";
   }
 }
 
 function nextSong(){
-  currentSong = (currentSong + 1) % songs.length;
+
+  currentSong =
+    (currentSong + 1)
+    % songs.length;
+
   loadSong(currentSong);
+
   audio.play();
-  playButton.textContent = "⏸";
+
+  playButton.textContent =
+    "⏸";
 }
 
 function previousSong(){
-  currentSong = (currentSong - 1 + songs.length) % songs.length;
+
+  currentSong =
+    (
+      currentSong
+      - 1
+      + songs.length
+    )
+    % songs.length;
+
   loadSong(currentSong);
+
   audio.play();
-  playButton.textContent = "⏸";
+
+  playButton.textContent =
+    "⏸";
 }
 
-audio.addEventListener("loadedmetadata", () => {
-  durationDisplay.textContent = formatTime(audio.duration);
-});
+audio.addEventListener(
+  "loadedmetadata",
+  ()=>{
 
-audio.addEventListener("timeupdate", () => {
-  if(!audio.duration) return;
-  progress.value = (audio.currentTime / audio.duration) * 100;
-  currentTimeDisplay.textContent = formatTime(audio.currentTime);
-  durationDisplay.textContent = formatTime(audio.duration);
-});
+    durationDisplay.textContent =
+      formatTime(audio.duration);
+  }
+);
 
-progress.addEventListener("input", () => {
-  if(!audio.duration) return;
-  audio.currentTime = (progress.value / 100) * audio.duration;
-});
+audio.addEventListener(
+  "timeupdate",
+  ()=>{
 
-volume.addEventListener("input", () => {
-  audio.volume = volume.value;
-});
+    if(!audio.duration){
+      return;
+    }
 
-audio.addEventListener("ended", nextSong);
-playButton.addEventListener("click", togglePlay);
-nextButton.addEventListener("click", nextSong);
-previousButton.addEventListener("click", previousSong);
+    progress.value =
+      (
+        audio.currentTime
+        / audio.duration
+      )
+      * 100;
+
+    currentTimeDisplay.textContent =
+      formatTime(
+        audio.currentTime
+      );
+
+    durationDisplay.textContent =
+      formatTime(
+        audio.duration
+      );
+  }
+);
+
+progress.addEventListener(
+  "input",
+  ()=>{
+
+    if(!audio.duration){
+      return;
+    }
+
+    audio.currentTime =
+      (
+        progress.value
+        / 100
+      )
+      * audio.duration;
+  }
+);
+
+volume.addEventListener(
+  "input",
+  ()=>{
+
+    audio.volume =
+      volume.value;
+  }
+);
+
+audio.addEventListener(
+  "ended",
+  nextSong
+);
+
+playButton.addEventListener(
+  "click",
+  togglePlay
+);
+
+nextButton.addEventListener(
+  "click",
+  nextSong
+);
+
+previousButton.addEventListener(
+  "click",
+  previousSong
+);
 
 function formatTime(seconds){
-  if(!Number.isFinite(seconds)) return "0:00";
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2,"0");
-  return minutes + ":" + remainingSeconds;
+
+  if(!Number.isFinite(seconds)){
+    return "0:00";
+  }
+
+  const minutes =
+    Math.floor(
+      seconds / 60
+    );
+
+  const remainingSeconds =
+    Math.floor(
+      seconds % 60
+    )
+    .toString()
+    .padStart(2,"0");
+
+  return (
+    minutes
+    + ":"
+    + remainingSeconds
+  );
 }
 
+/* =========================================
+   TRICK OR TREAT
+========================================= */
+
 function trickOrTreat(){
-  const emojis = ["🎃","👻","🦇","💀","🍬","🍭","🕷️","🕸️","🧛","🧟","🦴","⚰️"];
 
-  for(let i = 0; i < 130; i++){
-    const piece = document.createElement("div");
-    piece.className = "halloween-piece";
-    piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    piece.style.left = Math.random() * 100 + "vw";
-    piece.style.fontSize = (15 + Math.random() * 27) + "px";
-    piece.style.animationDuration = (2.2 + Math.random() * 4) + "s";
-    piece.style.animationDelay = Math.random() * .8 + "s";
+  const emojis = [
+    "🎃",
+    "👻",
+    "🦇",
+    "💀",
+    "🍬",
+    "🍭",
+    "🕷️",
+    "🕸️",
+    "🧛",
+    "🧟",
+    "🦴",
+    "⚰️"
+  ];
 
-    document.body.appendChild(piece);
-    setTimeout(() => piece.remove(), 7500);
+  for(
+    let i = 0;
+    i < 130;
+    i++
+  ){
+
+    const piece =
+      document.createElement("div");
+
+    piece.className =
+      "halloween-piece";
+
+    piece.textContent =
+      emojis[
+        Math.floor(
+          Math.random()
+          * emojis.length
+        )
+      ];
+
+    piece.style.left =
+      Math.random()
+      * 100
+      + "vw";
+
+    piece.style.fontSize =
+      (
+        15
+        + Math.random()
+        * 27
+      )
+      + "px";
+
+    piece.style.animationDuration =
+      (
+        2.2
+        + Math.random()
+        * 4
+      )
+      + "s";
+
+    piece.style.animationDelay =
+      (
+        Math.random()
+        * .8
+      )
+      + "s";
+
+    document.body.appendChild(
+      piece
+    );
+
+    setTimeout(
+      ()=>piece.remove(),
+      7500
+    );
   }
 }
 
-document.getElementById("treatButton").addEventListener("click", trickOrTreat);
+document
+  .getElementById("treatButton")
+  .addEventListener(
+    "click",
+    trickOrTreat
+  );
+
+/* =========================================
+   SECURITY HELPER
+========================================= */
 
 function escapeHTML(value){
+
   return String(value)
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
@@ -813,10 +1689,16 @@ function escapeHTML(value){
     .replaceAll("'","&#039;");
 }
 
+/* =========================================
+   START
+========================================= */
+
 audio.volume = .8;
+
 loadSong(0);
 loadNewestMembers();
 loadSpookiestMember();
+
 </script>
 
 </body>
