@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Haunted Rook</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#050208;
+  color:#f7ead0;
+  overflow-x:hidden;
+}
+
+.sidebar{
+  max-width:430px;
+  margin:0 auto;
+  padding:14px;
+  background:radial-gradient(circle at top,#321144,#0b0610 65%,#020103);
+  border:2px solid #f06a18;
+  border-radius:18px;
+  box-shadow:0 0 22px #f06a1888;
+}
+
+.hero{
+  width:100%;
+  border-radius:16px;
+  border:2px solid #f06a18;
+  box-shadow:0 0 18px #000;
+}
+
+h1{
+  text-align:center;
+  margin:12px 0 4px;
+  color:#ff7518;
+  font-size:30px;
+  text-shadow:0 0 8px #000;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  color:#d8c091;
+  margin-bottom:14px;
+}
+
+.card{
+  background:rgba(9,4,15,.92);
+  border:1px solid #6c3483;
+  border-radius:14px;
+  margin:12px 0;
+  padding:12px;
+  box-shadow:0 0 12px #000;
+}
+
+.card h2{
+  margin:0 0 8px;
+  color:#ff8b22;
+  font-size:18px;
+}
+
+.rotator{
+  overflow:hidden;
+  white-space:nowrap;
+  background:#16091f;
+  color:#ffe2a8;
+  border-radius:8px;
+  padding:6px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.rotator span{
+  display:inline-block;
+  padding-left:100%;
+  animation:moveText 15s linear infinite;
+}
+
+@keyframes moveText{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
+
+.member,.stat{
+  background:#1a0c25;
+  border-left:4px solid #ff7518;
+  border-radius:8px;
+  padding:8px;
+  margin:6px 0;
+  font-size:14px;
+}
+
+.links a{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-weight:bold;
+  color:#fff2d0;
+  padding:10px;
+  margin:7px 0;
+  border-radius:10px;
+  background:linear-gradient(135deg,#4b1268,#b94413);
+}
+
+.music-box{
+  background:#0f0616;
+  border:1px solid #ff7518;
+  border-radius:14px;
+  padding:12px;
+}
+
+.album{
+  width:100%;
+  border-radius:12px;
+  border:2px solid #30113f;
+  box-shadow:0 0 14px #000;
+}
+
+.song-title{
+  text-align:center;
+  margin-top:10px;
+  font-weight:bold;
+  color:#fff;
+}
+
+.song-artist{
+  text-align:center;
+  font-size:12px;
+  color:#cbb0df;
+  margin-bottom:8px;
+}
+
+.progress{
+  width:100%;
+  accent-color:#ff7518;
+}
+
+.time{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:#cbb0df;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:10px;
+}
+
+.controls button,.treat{
+  border:none;
+  border-radius:999px;
+  background:#ff7518;
+  color:#17051f;
+  font-weight:bold;
+  padding:9px 13px;
+  cursor:pointer;
+}
+
+.treat{
+  width:100%;
+  font-size:16px;
+  box-shadow:0 0 15px #ff7518aa;
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#bda8cf;
+  padding:12px 0 4px;
+}
+
+.confetti{
+  position:fixed;
+  top:-30px;
+  z-index:999999;
+  pointer-events:none;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(115vh) rotate(720deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+  <img class="hero" src="assets/hero.jpg" alt="The Haunted Rook">
+
+  <h1>🎃 The Haunted Rook</h1>
+  <div class="subtitle">Spooky chess, haunted matches, and tactical nightmares.</div>
+
+  <div class="card">
+    <h2>🧟 Newest Members</h2>
+    <div class="rotator"><span>Fresh souls have entered the castle...</span></div>
+    <div id="newMembers"><div class="member">Loading members...</div></div>
+  </div>
+
+  <div class="card links">
+    <h2>🕸️ Quick Links</h2>
+    <div class="rotator"><span>Forums, events, variants, and other suspicious human activities...</span></div>
+    <a href="https://www.chess.com/clubs/forum/the-haunted-rook" target="_blank">Club Forum</a>
+    <a href="https://www.chess.com/clubs/events/the-haunted-rook" target="_blank">Club Events</a>
+    <a href="https://www.chess.com/variants" target="_blank">Chess.com Variants</a>
+  </div>
+
+  <div class="card">
+    <h2>🎧 Haunted Rook Radio</h2>
+    <div class="rotator"><span>Spooky music for blunders made under candlelight...</span></div>
+
+    <div class="music-box">
+      <img class="album" src="assets/haunted-rook-radio-cover.jpg" alt="Haunted Rook Radio">
+
+      <div class="song-title" id="songTitle">Track 01</div>
+      <div class="song-artist" id="songArtist">Haunted Rook Radio</div>
+
+      <input class="progress" id="progress" type="range" value="0" min="0" max="100">
+
+      <div class="time">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button onclick="prevSong()">⏮</button>
+        <button onclick="togglePlay()" id="playBtn">▶</button>
+        <button onclick="nextSong()">⏭</button>
+      </div>
+
+      <audio id="audio"></audio>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>👑 Spookiest Member</h2>
+    <div class="rotator"><span>The top performer rises from the grave...</span></div>
+    <div id="spookiestMember" class="stat">
+      🦇 Update this board through <b>data/top-performer.json</b>.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🍬 Trick or Treat</h2>
+    <div class="rotator"><span>Press the button and unleash Halloween nonsense across the page...</span></div>
+    <button class="treat" onclick="trickOrTreat()">🎃 Trick or Treat</button>
+  </div>
+
+  <div class="footer">
+    Made by DevilsGambit22 © 2026
+  </div>
+
+</div>
+
+<script>
+const CLUB_SLUG = "the-haunted-rook";
+
+async function loadNewestMembers(){
+  const box = document.getElementById("newMembers");
+
+  try{
+    const res = await fetch(`https://api.chess.com/pub/club/${CLUB_SLUG}/members`);
+    const data = await res.json();
+
+    const members = [
+      ...(data.weekly || []),
+      ...(data.monthly || []),
+      ...(data.all_time || [])
+    ];
+
+    const unique = [];
+    const seen = new Set();
+
+    members.forEach(m=>{
+      if(m.username && !seen.has(m.username)){
+        seen.add(m.username);
+        unique.push(m.username);
+      }
+    });
+
+    box.innerHTML = unique.slice(0,5).map(name =>
+      `<div class="member">🧛 ${name}</div>`
+    ).join("") || `<div class="member">No members found yet.</div>`;
+
+  }catch(e){
+    box.innerHTML = `<div class="member">Members unavailable. Chess.com has chosen darkness.</div>`;
+  }
+}
+
+async function loadTopPerformer(){
+  const box = document.getElementById("spookiestMember");
+
+  try{
+    const res = await fetch("data/top-performer.json");
+    const data = await res.json();
+
+    box.innerHTML = `
+      🏆 <b>${data.username}</b><br>
+      <small>${data.title || "Spookiest Member"}</small><br>
+      <small>${data.reason || ""}</small>
+    `;
+  }catch(e){
+    box.innerHTML = `
+      🦇 <b>Spookiest Member</b><br>
+      <small>Create data/top-performer.json to automate this board.</small>
+    `;
+  }
+}
+
+const songs = [
+  {title:"Track 01", artist:"Haunted Rook Radio", src:"assets/music/track-01.mp3"},
+  {title:"Track 02", artist:"Haunted Rook Radio", src:"assets/music/track-02.mp3"},
+  {title:"Track 03", artist:"Haunted Rook Radio", src:"assets/music/track-03.mp3"},
+  {title:"Track 04", artist:"Haunted Rook Radio", src:"assets/music/track-04.mp3"}
+];
+
+let currentSong = 0;
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const progress = document.getElementById("progress");
+
+function loadSong(){
+  audio.src = songs[currentSong].src;
+  document.getElementById("songTitle").textContent = songs[currentSong].title;
+  document.getElementById("songArtist").textContent = songs[currentSong].artist;
+}
+
+function togglePlay(){
+  if(audio.paused){
+    audio.play();
+    playBtn.textContent = "⏸";
+  }else{
+    audio.pause();
+    playBtn.textContent = "▶";
+  }
+}
+
+function nextSong(){
+  currentSong = (currentSong + 1) % songs.length;
+  loadSong();
+  audio.play();
+  playBtn.textContent = "⏸";
+}
+
+function prevSong(){
+  currentSong = (currentSong - 1 + songs.length) % songs.length;
+  loadSong();
+  audio.play();
+  playBtn.textContent = "⏸";
+}
+
+audio.addEventListener("timeupdate",()=>{
+  if(audio.duration){
+    progress.value = (audio.currentTime / audio.duration) * 100;
+    document.getElementById("currentTime").textContent = formatTime(audio.currentTime);
+    document.getElementById("duration").textContent = formatTime(audio.duration);
+  }
+});
+
+progress.addEventListener("input",()=>{
+  if(audio.duration){
+    audio.currentTime = (progress.value / 100) * audio.duration;
+  }
+});
+
+audio.addEventListener("ended",nextSong);
+
+function formatTime(seconds){
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60).toString().padStart(2,"0");
+  return `${min}:${sec}`;
+}
+
+function trickOrTreat(){
+  const emojis = ["🎃","👻","🦇","💀","🍬","🕷️","🧛","🧟","🕸️"];
+  for(let i=0;i<100;i++){
+    const item = document.createElement("div");
+    item.className = "confetti";
+    item.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    item.style.left = Math.random()*100 + "vw";
+    item.style.fontSize = (16 + Math.random()*24) + "px";
+    item.style.animationDuration = (2 + Math.random()*3.5) + "s";
+    item.style.animationDelay = Math.random()*.4 + "s";
+    document.body.appendChild(item);
+    setTimeout(()=>item.remove(),6000);
+  }
+}
+
+loadSong();
+loadNewestMembers();
+loadTopPerformer();
+</script>
+
+</body>
+</html>
