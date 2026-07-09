@@ -34,19 +34,35 @@ body{
   color:var(--text);
 }
 
+/*
+  IMPORTANT:
+  The PAGE outside the sidebar is transparent.
+  The SIDEBAR itself keeps its dark haunted background.
+*/
+
 .sidebar{
   width:100%;
   max-width:430px;
   height:auto;
   min-height:0;
   margin:0 auto;
-  padding:0;
-  overflow:visible;
-  background:transparent !important;
-  background-color:transparent !important;
-  border:0;
-  border-radius:0;
-  box-shadow:none;
+  padding:16px;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #3f1452 0%,
+      #17091f 45%,
+      #06030a 100%
+    );
+
+  border:2px solid var(--orange);
+  border-radius:24px;
+
+  box-shadow:
+    inset 0 0 25px rgba(140,57,198,.12),
+    0 0 24px rgba(255,107,26,.35);
 }
 
 /* HERO */
@@ -54,12 +70,14 @@ body{
 .hero-wrap{
   overflow:hidden;
   border-radius:16px;
-  margin:0 0 8px;
+  margin-bottom:8px;
   border:2px solid var(--orange);
   background:#000;
+
   box-shadow:
     0 0 16px rgba(255,107,26,.55),
     0 0 35px rgba(112,36,154,.35);
+
   transition:
     transform .25s ease,
     box-shadow .25s ease;
@@ -67,6 +85,7 @@ body{
 
 .hero-wrap:hover{
   transform:translateY(-7px);
+
   box-shadow:
     0 14px 28px rgba(0,0,0,.55),
     0 0 20px rgba(255,107,26,.35);
@@ -76,6 +95,7 @@ body{
   display:block;
   width:100%;
   height:auto;
+
   transition:
     transform .4s ease,
     filter .4s ease;
@@ -91,7 +111,6 @@ body{
 .club-header{
   text-align:center;
   padding:14px 5px 6px;
-  background:transparent;
 }
 
 .club-name{
@@ -99,6 +118,7 @@ body{
   color:var(--orange);
   font-size:30px;
   line-height:1.1;
+
   text-shadow:
     0 0 8px rgba(255,107,26,.45),
     2px 2px 0 #210b2d;
@@ -109,7 +129,6 @@ body{
   color:#e3c99d;
   font-size:13px;
   line-height:1.45;
-  text-shadow:0 2px 4px rgba(0,0,0,.9);
 }
 
 /* CARDS */
@@ -118,17 +137,21 @@ body{
   position:relative;
   margin:14px 0;
   padding:13px;
+
   background:
     linear-gradient(
       145deg,
-      rgba(20,8,29,.98),
-      rgba(7,3,11,.98)
+      rgba(20,8,29,.97),
+      rgba(7,3,11,.97)
     );
+
   border:1px solid #713c91;
   border-radius:16px;
+
   box-shadow:
     0 8px 20px rgba(0,0,0,.38),
     inset 0 0 18px rgba(113,60,145,.08);
+
   transition:
     transform .25s ease,
     box-shadow .25s ease,
@@ -138,6 +161,7 @@ body{
 .card:hover{
   transform:translateY(-7px);
   border-color:var(--orange);
+
   box-shadow:
     0 16px 30px rgba(0,0,0,.55),
     0 0 20px rgba(255,107,26,.2);
@@ -196,9 +220,18 @@ body{
   align-items:center;
   gap:11px;
   padding:10px;
-  background:linear-gradient(135deg,#1d0c28,#100718);
+
+  background:
+    linear-gradient(
+      135deg,
+      #1d0c28,
+      #100718
+    );
+
   border-left:4px solid var(--orange);
   border-radius:12px;
+  overflow:visible;
+
   transition:
     transform .22s ease,
     background .22s ease,
@@ -207,7 +240,14 @@ body{
 
 .member-card:hover{
   transform:translateY(-6px) scale(1.015);
-  background:linear-gradient(135deg,#2d103d,#17091f);
+
+  background:
+    linear-gradient(
+      135deg,
+      #2d103d,
+      #17091f
+    );
+
   box-shadow:
     0 10px 18px rgba(0,0,0,.45),
     0 0 15px rgba(255,107,26,.18);
@@ -221,7 +261,9 @@ body{
   border-radius:50%;
   border:2px solid var(--orange);
   background:#2a1734;
-  box-shadow:0 0 10px rgba(255,107,26,.35);
+
+  box-shadow:
+    0 0 10px rgba(255,107,26,.35);
 }
 
 .member-info{
@@ -232,7 +274,7 @@ body{
 
 .member-name{
   position:relative;
-  z-index:2;
+  z-index:5;
   display:inline-block;
   max-width:100%;
   color:#fff;
@@ -240,6 +282,7 @@ body{
   font-weight:900;
   text-decoration:none;
   transform-origin:left center;
+
   transition:
     transform .22s ease,
     color .22s ease,
@@ -247,9 +290,10 @@ body{
 }
 
 .member-name:hover{
-  z-index:10;
+  z-index:20;
   transform:translateY(-4px) scale(1.16);
   color:#ffb35f;
+
   text-shadow:
     0 0 8px rgba(255,107,26,.95),
     0 0 18px rgba(140,57,198,.8);
@@ -277,9 +321,17 @@ body{
 .count-box{
   min-width:0;
   padding:10px 4px;
-  background:linear-gradient(145deg,#261033,#100718);
+
+  background:
+    linear-gradient(
+      145deg,
+      #261033,
+      #100718
+    );
+
   border:1px solid #713c91;
   border-radius:12px;
+
   box-shadow:
     inset 0 0 12px rgba(255,107,26,.08),
     0 4px 10px rgba(0,0,0,.25);
@@ -289,7 +341,9 @@ body{
   color:#ffb35f;
   font-size:22px;
   font-weight:900;
-  text-shadow:0 0 8px rgba(255,107,26,.45);
+
+  text-shadow:
+    0 0 8px rgba(255,107,26,.45);
 }
 
 .count-label{
@@ -335,6 +389,7 @@ body{
   font-size:14px;
   font-weight:800;
   border-radius:11px;
+
   background:
     linear-gradient(
       100deg,
@@ -342,7 +397,10 @@ body{
       #d23d45,
       #ff671d
     );
-  box-shadow:0 5px 12px rgba(0,0,0,.35);
+
+  box-shadow:
+    0 5px 12px rgba(0,0,0,.35);
+
   transition:
     transform .22s ease,
     filter .22s ease,
@@ -352,6 +410,7 @@ body{
 .quick-link:hover{
   transform:translateY(-6px) scale(1.02);
   filter:brightness(1.12);
+
   box-shadow:
     0 12px 20px rgba(0,0,0,.45),
     0 0 16px rgba(255,107,26,.3);
@@ -361,10 +420,20 @@ body{
 
 .music-player{
   padding:12px;
-  background:linear-gradient(160deg,#13091b,#08040c);
+
+  background:
+    linear-gradient(
+      160deg,
+      #13091b,
+      #08040c
+    );
+
   border:1px solid var(--orange);
   border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.45);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.45);
+
   transition:
     transform .28s ease,
     box-shadow .28s ease;
@@ -372,6 +441,7 @@ body{
 
 .music-player:hover{
   transform:translateY(-8px);
+
   box-shadow:
     0 18px 30px rgba(0,0,0,.58),
     0 0 22px rgba(255,107,26,.26);
@@ -387,6 +457,7 @@ body{
   width:100%;
   height:auto;
   border-radius:14px;
+
   transition:
     transform .4s ease,
     filter .4s ease;
@@ -450,6 +521,7 @@ body{
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
+
   transition:
     transform .2s ease,
     box-shadow .2s ease,
@@ -459,6 +531,7 @@ body{
 .control-btn:hover{
   transform:translateY(-6px) scale(1.08);
   filter:brightness(1.1);
+
   box-shadow:
     0 9px 18px rgba(0,0,0,.45),
     0 0 14px rgba(255,107,26,.45);
@@ -486,9 +559,17 @@ body{
   align-items:center;
   gap:12px;
   padding:12px;
-  background:linear-gradient(135deg,#291036,#120719);
+
+  background:
+    linear-gradient(
+      135deg,
+      #291036,
+      #120719
+    );
+
   border-left:4px solid #f5b942;
   border-radius:12px;
+
   transition:
     transform .22s ease,
     box-shadow .22s ease;
@@ -496,6 +577,7 @@ body{
 
 .spookiest-card:hover{
   transform:translateY(-7px) scale(1.015);
+
   box-shadow:
     0 12px 22px rgba(0,0,0,.48),
     0 0 16px rgba(245,185,66,.22);
@@ -535,12 +617,22 @@ body{
   padding:13px;
   border:0;
   border-radius:999px;
-  background:linear-gradient(90deg,#7c21c5,#ff671d);
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c21c5,
+      #ff671d
+    );
+
   color:#fff;
   font-size:16px;
   font-weight:900;
   cursor:pointer;
-  box-shadow:0 0 18px rgba(255,103,29,.4);
+
+  box-shadow:
+    0 0 18px rgba(255,103,29,.4);
+
   transition:
     transform .22s ease,
     box-shadow .22s ease,
@@ -550,6 +642,7 @@ body{
 .treat-button:hover{
   transform:translateY(-8px) scale(1.03);
   filter:brightness(1.12);
+
   box-shadow:
     0 15px 25px rgba(0,0,0,.5),
     0 0 25px rgba(255,103,29,.55);
@@ -582,7 +675,6 @@ body{
   text-align:center;
   color:#bca6ca;
   font-size:12px;
-  background:transparent;
 }
 
 .footer strong{
@@ -594,7 +686,8 @@ body{
 @media(max-width:480px){
 
   .sidebar{
-    padding:0;
+    padding:7px;
+    border-radius:18px;
   }
 
   .hero-wrap{
@@ -807,13 +900,17 @@ body{
 
   <header class="club-header">
     <h1 class="club-name">🎃 The Haunted Rook</h1>
+
     <p class="tagline">
       Spooky chess, haunted matches, and tactical nightmares.
     </p>
   </header>
 
   <section class="card">
-    <h2 class="card-title">🧟 Newest Member</h2>
+
+    <h2 class="card-title">
+      🧟 Newest Member
+    </h2>
 
     <div class="rotator">
       <span class="rotator-track">
@@ -821,15 +918,22 @@ body{
       </span>
     </div>
 
-    <div id="newMembers" class="members-list">
+    <div
+      id="newMembers"
+      class="members-list"
+    >
       <div class="loading">
         Summoning newest member...
       </div>
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🎃 Halloween Countdown</h2>
+
+    <h2 class="card-title">
+      🎃 Halloween Countdown
+    </h2>
 
     <div class="rotator">
       <span class="rotator-track">
@@ -840,34 +944,73 @@ body{
     <div class="countdown-grid">
 
       <div class="count-box">
-        <div id="days" class="count-number">0</div>
-        <div class="count-label">Days</div>
+        <div
+          id="days"
+          class="count-number"
+        >
+          0
+        </div>
+
+        <div class="count-label">
+          Days
+        </div>
       </div>
 
       <div class="count-box">
-        <div id="hours" class="count-number">0</div>
-        <div class="count-label">Hours</div>
+        <div
+          id="hours"
+          class="count-number"
+        >
+          0
+        </div>
+
+        <div class="count-label">
+          Hours
+        </div>
       </div>
 
       <div class="count-box">
-        <div id="minutes" class="count-number">0</div>
-        <div class="count-label">Minutes</div>
+        <div
+          id="minutes"
+          class="count-number"
+        >
+          0
+        </div>
+
+        <div class="count-label">
+          Minutes
+        </div>
       </div>
 
       <div class="count-box">
-        <div id="seconds" class="count-number">0</div>
-        <div class="count-label">Seconds</div>
+        <div
+          id="seconds"
+          class="count-number"
+        >
+          0
+        </div>
+
+        <div class="count-label">
+          Seconds
+        </div>
       </div>
 
     </div>
 
-    <div id="countNote" class="count-note">
+    <div
+      id="countNote"
+      class="count-note"
+    >
       Counting down to Halloween.
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🕸️ Quick Links</h2>
+
+    <h2 class="card-title">
+      🕸️ Quick Links
+    </h2>
 
     <div class="rotator">
       <span class="rotator-track">
@@ -905,10 +1048,14 @@ body{
       </a>
 
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🎧 Haunted Rook Radio</h2>
+
+    <h2 class="card-title">
+      🎧 Haunted Rook Radio
+    </h2>
 
     <div class="rotator">
       <span class="rotator-track">
@@ -927,13 +1074,21 @@ body{
       </div>
 
       <div class="now-playing">
-        <div id="songTitle" class="song-title">
+
+        <div
+          id="songTitle"
+          class="song-title"
+        >
           Track 01
         </div>
 
-        <div id="songArtist" class="song-artist">
+        <div
+          id="songArtist"
+          class="song-artist"
+        >
           Haunted Rook Radio
         </div>
+
       </div>
 
       <input
@@ -979,6 +1134,7 @@ body{
       </div>
 
       <div class="volume-row">
+
         <span>🔊</span>
 
         <input
@@ -990,15 +1146,23 @@ body{
           step="0.01"
           value="0.8"
         >
+
       </div>
 
-      <audio id="audio" preload="metadata"></audio>
+      <audio
+        id="audio"
+        preload="metadata"
+      ></audio>
 
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">👑 Spookiest Member</h2>
+
+    <h2 class="card-title">
+      👑 Spookiest Member
+    </h2>
 
     <div class="rotator">
       <span class="rotator-track">
@@ -1007,14 +1171,20 @@ body{
     </div>
 
     <div id="spookiestMember">
+
       <div class="loading">
         Searching the crypt...
       </div>
+
     </div>
+
   </section>
 
   <section class="card">
-    <h2 class="card-title">🍬 Trick or Treat</h2>
+
+    <h2 class="card-title">
+      🍬 Trick or Treat
+    </h2>
 
     <div class="rotator">
       <span class="rotator-track">
@@ -1028,10 +1198,13 @@ body{
     >
       🎃 Trick or Treat
     </button>
+
   </section>
 
   <footer class="footer">
-    Made by <strong>DevilsGambit22</strong> © 2026
+    Made by
+    <strong>DevilsGambit22</strong>
+    © 2026
   </footer>
 
 </main>
@@ -1042,7 +1215,9 @@ const CLUB_SLUG = "the-haunted-rook";
 const DEFAULT_AVATAR =
   "https://www.chess.com/bundles/web/images/noavatar_l.84a92436.gif";
 
-/* NEWEST MEMBER */
+/* =========================
+   NEWEST MEMBER
+========================= */
 
 async function loadNewestMember(){
 
@@ -1056,10 +1231,13 @@ async function loadNewestMember(){
     );
 
     if(!response.ok){
-      throw new Error("Club member request failed");
+      throw new Error(
+        "Club member request failed"
+      );
     }
 
-    const data = await response.json();
+    const data =
+      await response.json();
 
     const combined = [
       ...(data.weekly || []),
@@ -1074,31 +1252,43 @@ async function loadNewestMember(){
 
       if(
         member.username &&
-        !seen.has(member.username.toLowerCase())
+        !seen.has(
+          member.username.toLowerCase()
+        )
       ){
 
-        seen.add(member.username.toLowerCase());
+        seen.add(
+          member.username.toLowerCase()
+        );
+
         uniqueMembers.push(member);
 
       }
     }
 
     uniqueMembers.sort(
-      (a,b) => (b.joined || 0) - (a.joined || 0)
+      (a,b) =>
+        (b.joined || 0) -
+        (a.joined || 0)
     );
 
-    const newestMember = uniqueMembers[0];
+    const newestMember =
+      uniqueMembers[0];
 
     if(!newestMember){
 
       container.innerHTML =
-        `<div class="loading">No members found yet.</div>`;
+        `<div class="loading">
+          No members found yet.
+        </div>`;
 
       return;
     }
 
     container.innerHTML =
-      await buildMemberCard(newestMember.username);
+      await buildMemberCard(
+        newestMember.username
+      );
 
   }catch(error){
 
@@ -1114,8 +1304,11 @@ async function loadNewestMember(){
 
 async function buildMemberCard(username){
 
-  let avatar = DEFAULT_AVATAR;
-  let highestRating = "Unrated";
+  let avatar =
+    DEFAULT_AVATAR;
+
+  let highestRating =
+    "Unrated";
 
   try{
 
@@ -1142,6 +1335,7 @@ async function buildMemberCard(username){
       if(profile.avatar){
         avatar = profile.avatar;
       }
+
     }
 
     if(statsResponse.ok){
@@ -1195,7 +1389,9 @@ async function buildMemberCard(username){
         </a>
 
         <div class="member-rating">
-          <strong>${highestRating}</strong>
+          <strong>
+            ${highestRating}
+          </strong>
         </div>
 
       </div>
@@ -1210,22 +1406,26 @@ function findHighestRating(stats){
 
     {
       label:"Bullet",
-      value:stats?.chess_bullet?.last?.rating
+      value:
+        stats?.chess_bullet?.last?.rating
     },
 
     {
       label:"Blitz",
-      value:stats?.chess_blitz?.last?.rating
+      value:
+        stats?.chess_blitz?.last?.rating
     },
 
     {
       label:"Rapid",
-      value:stats?.chess_rapid?.last?.rating
+      value:
+        stats?.chess_rapid?.last?.rating
     },
 
     {
       label:"Daily",
-      value:stats?.chess_daily?.last?.rating
+      value:
+        stats?.chess_daily?.last?.rating
     }
 
   ].filter(
@@ -1238,28 +1438,37 @@ function findHighestRating(stats){
     return "Unrated";
   }
 
-  const highest = ratings.reduce(
-    (best,current) =>
-      current.value > best.value
-        ? current
-        : best
-  );
+  const highest =
+    ratings.reduce(
+      (best,current) =>
+        current.value > best.value
+          ? current
+          : best
+    );
 
   return `${highest.label}: ${highest.value}`;
 }
 
-/* HALLOWEEN COUNTDOWN */
+/* =========================
+   HALLOWEEN COUNTDOWN
+========================= */
 
 function getHalloweenTarget(){
 
-  const now = new Date();
+  const now =
+    new Date();
 
-  const currentYear =
+  const year =
     now.getFullYear();
+
+  /*
+    Countdown runs through all of October 31.
+    It resets when November 1 begins.
+  */
 
   const endOfHalloween =
     new Date(
-      currentYear,
+      year,
       10,
       1,
       0,
@@ -1269,29 +1478,39 @@ function getHalloweenTarget(){
     );
 
   if(now < endOfHalloween){
-    return endOfHalloween;
+    return {
+      target:endOfHalloween,
+      halloweenYear:year
+    };
   }
 
-  return new Date(
-    currentYear + 1,
-    10,
-    1,
-    0,
-    0,
-    0,
-    0
-  );
+  return {
+    target:new Date(
+      year + 1,
+      10,
+      1,
+      0,
+      0,
+      0,
+      0
+    ),
+    halloweenYear:year + 1
+  };
 }
 
 function updateHalloweenCountdown(){
 
-  const now = new Date();
+  const now =
+    new Date();
 
-  const target =
+  const halloween =
     getHalloweenTarget();
 
   const difference =
-    Math.max(0,target - now);
+    Math.max(
+      0,
+      halloween.target - now
+    );
 
   const days =
     Math.floor(
@@ -1300,49 +1519,66 @@ function updateHalloweenCountdown(){
 
   const hours =
     Math.floor(
-      (difference % 86400000) / 3600000
+      (difference % 86400000) /
+      3600000
     );
 
   const minutes =
     Math.floor(
-      (difference % 3600000) / 60000
+      (difference % 3600000) /
+      60000
     );
 
   const seconds =
     Math.floor(
-      (difference % 60000) / 1000
+      (difference % 60000) /
+      1000
     );
 
-  document.getElementById("days").textContent =
-    days;
+  document
+    .getElementById("days")
+    .textContent = days;
 
-  document.getElementById("hours").textContent =
-    hours;
+  document
+    .getElementById("hours")
+    .textContent = hours;
 
-  document.getElementById("minutes").textContent =
-    minutes;
+  document
+    .getElementById("minutes")
+    .textContent = minutes;
 
-  document.getElementById("seconds").textContent =
-    seconds;
+  document
+    .getElementById("seconds")
+    .textContent = seconds;
 
-  document.getElementById("countNote").textContent =
-    `Counting down to Halloween ${target.getFullYear()}.`;
+  document
+    .getElementById("countNote")
+    .textContent =
+      `Counting down to Halloween ${halloween.halloweenYear}.`;
 }
 
-/* SPOOKIEST MEMBER */
+/* =========================
+   SPOOKIEST MEMBER
+========================= */
 
 async function loadSpookiestMember(){
 
   const container =
-    document.getElementById("spookiestMember");
+    document.getElementById(
+      "spookiestMember"
+    );
 
   try{
 
     const response =
-      await fetch("./data/top-performer.json");
+      await fetch(
+        "./data/top-performer.json"
+      );
 
     if(!response.ok){
-      throw new Error("Top performer file missing");
+      throw new Error(
+        "Top performer file missing"
+      );
     }
 
     const performer =
@@ -1434,7 +1670,9 @@ async function loadSpookiestMember(){
   }
 }
 
-/* RADIO */
+/* =========================
+   HAUNTED ROOK RADIO
+========================= */
 
 const songs = [
 
@@ -1527,7 +1765,8 @@ function togglePlay(){
 
     audio.play()
       .then(() => {
-        playButton.textContent = "⏸";
+        playButton.textContent =
+          "⏸";
       })
       .catch(error => {
         console.error(
@@ -1539,7 +1778,9 @@ function togglePlay(){
   }else{
 
     audio.pause();
-    playButton.textContent = "▶";
+
+    playButton.textContent =
+      "▶";
 
   }
 }
@@ -1547,13 +1788,15 @@ function togglePlay(){
 function nextSong(){
 
   currentSong =
-    (currentSong + 1) % songs.length;
+    (currentSong + 1) %
+    songs.length;
 
   loadSong(currentSong);
 
   audio.play()
     .then(() => {
-      playButton.textContent = "⏸";
+      playButton.textContent =
+        "⏸";
     })
     .catch(error => {
       console.error(error);
@@ -1564,14 +1807,17 @@ function previousSong(){
 
   currentSong =
     (
-      currentSong - 1 + songs.length
+      currentSong -
+      1 +
+      songs.length
     ) % songs.length;
 
   loadSong(currentSong);
 
   audio.play()
     .then(() => {
-      playButton.textContent = "⏸";
+      playButton.textContent =
+        "⏸";
     })
     .catch(error => {
       console.error(error);
@@ -1603,10 +1849,14 @@ audio.addEventListener(
       ) * 100;
 
     currentTimeDisplay.textContent =
-      formatTime(audio.currentTime);
+      formatTime(
+        audio.currentTime
+      );
 
     durationDisplay.textContent =
-      formatTime(audio.duration);
+      formatTime(
+        audio.duration
+      );
 
   }
 );
@@ -1621,7 +1871,8 @@ progress.addEventListener(
 
     audio.currentTime =
       (
-        progress.value / 100
+        progress.value /
+        100
       ) * audio.duration;
 
   }
@@ -1664,17 +1915,27 @@ function formatTime(seconds){
   }
 
   const minutes =
-    Math.floor(seconds / 60);
+    Math.floor(
+      seconds / 60
+    );
 
   const remainingSeconds =
-    Math.floor(seconds % 60)
-      .toString()
-      .padStart(2,"0");
+    Math.floor(
+      seconds % 60
+    )
+    .toString()
+    .padStart(2,"0");
 
-  return `${minutes}:${remainingSeconds}`;
+  return (
+    minutes +
+    ":" +
+    remainingSeconds
+  );
 }
 
-/* TRICK OR TREAT */
+/* =========================
+   TRICK OR TREAT
+========================= */
 
 function trickOrTreat(){
 
@@ -1704,23 +1965,42 @@ function trickOrTreat(){
     piece.textContent =
       emojis[
         Math.floor(
-          Math.random() * emojis.length
+          Math.random() *
+          emojis.length
         )
       ];
 
     piece.style.left =
-      Math.random() * 100 + "vw";
+      Math.random() *
+      100 +
+      "vw";
 
     piece.style.fontSize =
-      15 + Math.random() * 27 + "px";
+      (
+        15 +
+        Math.random() *
+        27
+      ) +
+      "px";
 
     piece.style.animationDuration =
-      2.2 + Math.random() * 4 + "s";
+      (
+        2.2 +
+        Math.random() *
+        4
+      ) +
+      "s";
 
     piece.style.animationDelay =
-      Math.random() * .8 + "s";
+      (
+        Math.random() *
+        .8
+      ) +
+      "s";
 
-    document.body.appendChild(piece);
+    document.body.appendChild(
+      piece
+    );
 
     setTimeout(
       () => piece.remove(),
@@ -1731,30 +2011,31 @@ function trickOrTreat(){
 }
 
 document
-  .getElementById("treatButton")
+  .getElementById(
+    "treatButton"
+  )
   .addEventListener(
     "click",
     trickOrTreat
   );
 
-/* SAFE TEXT */
+/* =========================
+   SAFE TEXT
+========================= */
 
 function escapeHTML(value){
 
   return String(value)
-
     .replaceAll("&","&amp;")
-
     .replaceAll("<","&lt;")
-
     .replaceAll(">","&gt;")
-
     .replaceAll('"',"&quot;")
-
     .replaceAll("'","&#039;");
 }
 
-/* START */
+/* =========================
+   START
+========================= */
 
 audio.volume = .8;
 
