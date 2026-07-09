@@ -21,7 +21,7 @@ html,body{
   padding:0;
   width:100%;
   min-height:0;
-  background:#050207;
+  background:transparent !important;
   overflow-x:hidden;
 }
 
@@ -35,7 +35,6 @@ body{
   max-width:430px;
   height:auto;
   min-height:0;
-  max-height:none;
   margin:0 auto;
   padding:16px;
   overflow:hidden;
@@ -182,13 +181,22 @@ body{
 }
 
 .member-name{
-  display:block;
+  display:inline-block;
+  max-width:100%;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
   color:#fff;
   font-size:15px;
-  font-weight:800;
+  font-weight:900;
+  text-decoration:none;
+  transition:transform .22s ease,color .22s ease,text-shadow .22s ease;
+}
+
+.member-name:hover{
+  transform:translateY(-4px) scale(1.12);
+  color:#ffb35f;
+  text-shadow:0 0 8px rgba(255,107,26,.85),0 0 18px rgba(140,57,198,.65);
 }
 
 .member-rating{
@@ -198,6 +206,43 @@ body{
 }
 
 .member-rating strong{color:#ffb35f}
+
+.countdown-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  text-align:center;
+}
+
+.count-box{
+  padding:10px 4px;
+  background:linear-gradient(145deg,#261033,#100718);
+  border:1px solid #713c91;
+  border-radius:12px;
+  box-shadow:inset 0 0 12px rgba(255,107,26,.08);
+}
+
+.count-number{
+  color:#ffb35f;
+  font-size:22px;
+  font-weight:900;
+  text-shadow:0 0 8px rgba(255,107,26,.45);
+}
+
+.count-label{
+  margin-top:3px;
+  color:#d7bddf;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+.count-note{
+  margin-top:10px;
+  text-align:center;
+  color:#e3c99d;
+  font-size:12px;
+}
 
 .loading{
   padding:13px;
@@ -472,18 +517,10 @@ body{
     font-size:10px;
   }
 
-  .members-list{
-    gap:5px;
-  }
-
   .member-card{
     gap:8px;
     padding:6px 8px;
     border-radius:9px;
-  }
-
-  .member-card:hover{
-    transform:translateY(-3px) scale(1.005);
   }
 
   .member-avatar{
@@ -501,8 +538,20 @@ body{
     font-size:10px;
   }
 
-  .quick-links{
+  .countdown-grid{
     gap:5px;
+  }
+
+  .count-number{
+    font-size:17px;
+  }
+
+  .count-label{
+    font-size:8px;
+  }
+
+  .count-note{
+    font-size:10px;
   }
 
   .quick-link{
@@ -516,22 +565,10 @@ body{
     border-radius:12px;
   }
 
-  .music-player:hover{
-    transform:translateY(-3px);
-  }
-
   .album-wrap{
     width:62%;
     margin:0 auto;
     border-radius:10px;
-  }
-
-  .album-art{
-    border-radius:10px;
-  }
-
-  .now-playing{
-    padding:6px 2px 3px;
   }
 
   .song-title{
@@ -539,17 +576,7 @@ body{
   }
 
   .song-artist{
-    margin-top:2px;
     font-size:10px;
-  }
-
-  .time-row{
-    font-size:9px;
-  }
-
-  .controls{
-    gap:7px;
-    margin-top:5px;
   }
 
   .control-btn{
@@ -562,44 +589,6 @@ body{
     width:40px;
     height:40px;
     font-size:15px;
-  }
-
-  .volume-row{
-    margin-top:6px;
-    font-size:10px;
-  }
-
-  .spookiest-card{
-    gap:8px;
-    padding:7px;
-  }
-
-  .spookiest-card:hover{
-    transform:translateY(-3px) scale(1.005);
-  }
-
-  .spookiest-avatar{
-    width:44px;
-    height:44px;
-  }
-
-  .spookiest-name{
-    font-size:13px;
-  }
-
-  .spookiest-title{
-    margin-top:2px;
-    font-size:10px;
-  }
-
-  .spookiest-reason{
-    margin-top:2px;
-    font-size:9px;
-  }
-
-  .treat-button{
-    padding:9px;
-    font-size:13px;
   }
 
   .footer{
@@ -624,9 +613,35 @@ body{
 </header>
 
 <section class="card">
-  <h2 class="card-title">🧟 Newest Members</h2>
-  <div class="rotator"><span class="rotator-track">Fresh souls have entered the castle • Welcome to The Haunted Rook •</span></div>
-  <div id="newMembers" class="members-list"><div class="loading">Summoning club members...</div></div>
+  <h2 class="card-title">🧟 Newest Member</h2>
+  <div class="rotator"><span class="rotator-track">A fresh soul has entered the castle • Welcome to The Haunted Rook •</span></div>
+  <div id="newMembers" class="members-list"><div class="loading">Summoning newest member...</div></div>
+</section>
+
+<section class="card">
+  <h2 class="card-title">🎃 Halloween Countdown</h2>
+  <div class="rotator"><span class="rotator-track">The castle waits for October 31 • The countdown resets every year •</span></div>
+
+  <div class="countdown-grid">
+    <div class="count-box">
+      <div id="days" class="count-number">0</div>
+      <div class="count-label">Days</div>
+    </div>
+    <div class="count-box">
+      <div id="hours" class="count-number">0</div>
+      <div class="count-label">Hours</div>
+    </div>
+    <div class="count-box">
+      <div id="minutes" class="count-number">0</div>
+      <div class="count-label">Minutes</div>
+    </div>
+    <div class="count-box">
+      <div id="seconds" class="count-number">0</div>
+      <div class="count-label">Seconds</div>
+    </div>
+  </div>
+
+  <div id="countNote" class="count-note">Counting down to Halloween.</div>
 </section>
 
 <section class="card">
@@ -717,15 +732,16 @@ async function loadNewestMembers(){
       }
     }
 
-    const selectedMembers = uniqueMembers.slice(0,5);
+    uniqueMembers.sort((a,b)=>(b.joined || 0) - (a.joined || 0));
 
-    if(!selectedMembers.length){
+    const newestMember = uniqueMembers[0];
+
+    if(!newestMember){
       container.innerHTML = `<div class="loading">No members found yet.</div>`;
       return;
     }
 
-    const memberCards = await Promise.all(selectedMembers.map(member => buildMemberCard(member.username)));
-    container.innerHTML = memberCards.join("");
+    container.innerHTML = await buildMemberCard(newestMember.username);
 
   }catch(error){
     console.error(error);
@@ -758,37 +774,63 @@ async function buildMemberCard(username){
   }
 
   const safeUsername = escapeHTML(username);
+  const profileUrl = `https://www.chess.com/member/${encodeURIComponent(username)}`;
 
   return `
     <div class="member-card">
       <img class="member-avatar" src="${avatar}" alt="${safeUsername}" loading="lazy" onerror="this.src='${DEFAULT_AVATAR}'">
       <div class="member-info">
-        <span class="member-name">${safeUsername}</span>
-        <div class="member-rating">Highest Rating: <strong>${highestRating}</strong></div>
+        <a class="member-name" href="${profileUrl}" target="_blank" rel="noopener">${safeUsername}</a>
+        <div class="member-rating">Highest Elo: <strong>${highestRating}</strong></div>
       </div>
     </div>
   `;
 }
 
 function findHighestRating(stats){
-  const ratings = [];
-  const categories = [
-    "chess_daily",
-    "chess_rapid",
-    "chess_blitz",
-    "chess_bullet",
-    "chess960_daily",
-    "chess960_rapid",
-    "chess960_blitz",
-    "chess960_bullet"
-  ];
+  const ratings = [
+    { label:"Bullet", value:stats?.chess_bullet?.last?.rating },
+    { label:"Blitz", value:stats?.chess_blitz?.last?.rating },
+    { label:"Rapid", value:stats?.chess_rapid?.last?.rating },
+    { label:"Daily", value:stats?.chess_daily?.last?.rating }
+  ].filter(item => typeof item.value === "number" && Number.isFinite(item.value));
 
-  for(const category of categories){
-    const value = stats?.[category]?.last?.rating;
-    if(typeof value === "number" && Number.isFinite(value)) ratings.push(value);
+  if(!ratings.length) return "Unrated";
+
+  const highest = ratings.reduce((best,current)=>{
+    return current.value > best.value ? current : best;
+  });
+
+  return `${highest.label}: ${highest.value}`;
+}
+
+function getNextHalloween(){
+  const now = new Date();
+  let halloween = new Date(now.getFullYear(),10,1,0,0,0);
+
+  if(now >= halloween){
+    halloween = new Date(now.getFullYear() + 1,10,1,0,0,0);
   }
 
-  return ratings.length ? Math.max(...ratings) : "Unrated";
+  return halloween;
+}
+
+function updateHalloweenCountdown(){
+  const now = new Date();
+  const target = getNextHalloween();
+  const difference = target - now;
+
+  const days = Math.floor(difference / 86400000);
+  const hours = Math.floor((difference % 86400000) / 3600000);
+  const minutes = Math.floor((difference % 3600000) / 60000);
+  const seconds = Math.floor((difference % 60000) / 1000);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+
+  document.getElementById("countNote").textContent = `Counting down to Halloween ${target.getFullYear()}.`;
 }
 
 async function loadSpookiestMember(){
@@ -946,6 +988,8 @@ audio.volume = .8;
 loadSong(0);
 loadNewestMembers();
 loadSpookiestMember();
+updateHalloweenCountdown();
+setInterval(updateHalloweenCountdown,1000);
 </script>
 
 </body>
